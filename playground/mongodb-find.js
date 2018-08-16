@@ -6,7 +6,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp' , (err, client) => {
     }
     const db = client.db('TodoApp')
 
-db.collection('Users').find().count().then((docs)=> {
+db.collection('Users').find({location : "santacruzz"}).toArray().then((docs)=> {
     console.log(JSON.stringify(docs,undefined,2))
 }, (err) => {
     if(err) {
